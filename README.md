@@ -15,7 +15,15 @@
 ## 🔄 시스템 파이프라인 및 서비스 흐름
 *(주차 공간 탐색부터 초개인화 추천, 경로 등록까지의 ParkIQ 유기적 작동 구조)*
 
-<img src="https://private-user-images.githubusercontent.com/203524304/700870304-4a64744b-0a23-44f7-9755-63fc86d99134.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTQ3MTQ0OTEsIm5iZiI6MTc5NDcxNDE5MSwicGF0aCI6Ii8yMDM1MjQzMDQvNzAwODcwMzA0LTRhNjQ3NDRiLTBhMjMtNDRmNy05NzU1LTYzZmM4NmQ5OTEzNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYxMTE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MTExNVQwMzQzMTFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03MGMxYzY3OTQ4NmZiMzY2NmYyZWJjZmNkMGY5OGU1ZWFjY2Y1OThkNWQyY2UwYWNmZDdjYjgzMWNmODE0NzM4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.jpwercQY8D23j7FpT3ejA5mGL-Ab6Gcac_9pk-TEgb4" width="100%" alt="ParkIQ 시스템 파이프라인"/>
+### 1. 시스템 파이프라인 아키텍처
+<p align="center">
+  <img src="https://private-user-images.githubusercontent.com/203524304/700870304-4a64744b-0a23-44f7-9755-63fc86d99134.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTQ3MTQ0OTEsIm5iZiI6MTc5NDcxNDE5MSwicGF0aCI6Ii8yMDM1MjQzMDQvNzAwODcwMzA0LTRhNjQ3NDRiLTBhMjMtNDRmNy05NzU1LTYzZmM4NmQ5OTEzNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYxMTE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MTExNVQwMzQzMTFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03MGMxYzY3OTQ4NmZiMzY2NmYyZWJjZmNkMGY5OGU1ZWFjY2Y1OThkNWQyY2UwYWNmZDdjYjgzMWNmODE0NzM4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.jpwercQY8D23j7FpT3ejA5mGL-Ab6Gcac_9pk-TEgb4" width="100%" alt="ParkIQ 시스템 파이프라인"/>
+</p>
+
+### 2. 주요 서비스 시연 화면 (In-Car UI Demo)
+<p align="center">
+  <img src="https://private-user-images.githubusercontent.com/203524304/706674355-4d70d116-a14b-4cd6-9de5-bb607c814cb4.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTQ3MjA4NjMsIm5iZiI6MTc5NDcyMDU2MywicGF0aCI6Ii8yMDM1MjQzMDQvNzA2Njc0MzU1LTRkNzBkMTE2LWExNGItNGNkNi05ZGU1LWJiNjA3YzgxNGNiNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYxMTE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MTExNVQwNTI5MjNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hNzJmMjJjY2FjM2IxYjY1NTg4YjRiMTU2NTY5YjM4ZTRhZjdhOTMwNTkwNzdhZWQyMjcyODY2YWUzOWMzNmNlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.3oq5rN35WctizlaY9OkcFxywKoqpnL0e3cDVv47Ones" width="100%" alt="ParkIQ 서비스 시연 화면"/>
+</p>
 
 <br>
 
@@ -39,17 +47,19 @@
 
 <br>
 
+## 🛠️ 시스템 아키텍처 및 개발 계획 (System Architecture & Development Plan)
+
 ### 1. 프론트엔드 및 사용자 인터페이스 (Frontend & UI)
-* **Pleos Connect SDK**: 현대차그룹 Pleos Connect 환경에 맞춘 최적화된 차량용 웹 프레임워크 기반의 사용자 인터페이스(UI)를 구현합니다. 이를 통해 차량 내 디스플레이 환경에서 직관적이고 안정적인 서비스 경험을 제공합니다.
-* **Voice UI**: Gleo AI 음성 명령어 연동을 통한 핸즈프리 조작 모듈을 개발하여, 운전 중에도 안전하고 편리하게 시스템을 제어할 수 있도록 지원합니다.
+- **Pleos Connect SDK**: 현대차그룹 Pleos Connect 환경에 맞춘 최적화된 차량용 웹 프레임워크 기반의 사용자 인터페이스(UI)를 구현합니다. 이를 통해 차량 내 디스플레이 환경에서 직관적이고 안정적인 서비스 경험을 제공합니다.
+- **Voice UI**: Gleo AI 음성 명령어 연동을 통한 핸즈프리 조작 모듈을 개발하여, 운전 중에도 안전하고 편리하게 시스템을 제어할 수 있도록 지원합니다.
 
 ### 2. 백엔드 및 데이터 파이프라인 (Backend & Data Pipeline)
-* **Framework**: Python (FastAPI) 기반의 고성능 백엔드 API 서버를 구축하여 비동기 처리 및 빠른 응답 속도를 확보합니다.
-* **Database**: PostgreSQL 및 PostGIS 확장을 활용하여 대규모 공간 데이터(Geospatial Data)의 고속 연산 및 공간 인덱싱을 수행합니다.
-* **API Integration**: 공공데이터포털의 실시간 주차장 정보 API 및 다양한 민간 주차 플랫폼 데이터를 연동하여 최신 주차 가용 정보를 실시간으로 수집합니다.
+- **Framework**: Python (FastAPI) 기반의 고성능 백엔드 API 서버를 구축하여 비동기 처리 및 빠른 응답 속도를 확보합니다.
+- **Database**: PostgreSQL 및 PostGIS 확장을 활용하여 대규모 공간 데이터(Geospatial Data)의 고속 연산 및 공간 인덱싱을 수행합니다.
+- **API Integration**: 공공데이터포털의 실시간 주차장 정보 API 및 다양한 민간 주차 플랫폼 데이터를 연동하여 최신 주차 가용 정보를 실시간으로 수집합니다.
 
 ### 3. 알고리즘 (Algorithm & Routing)
-* **Multi-objective Optimization**: 차량 이동 소요 시간(ETA)과 목적지 도보 이동 시간을 동시에 최소화하기 위한 다목적 최적화 가중치 알고리즘을 적용합니다. 이를 통해 운전자에게 최적의 주차 공간 및 경로를 추천합니다.
+- **Multi-objective Optimization**: 차량 이동 소요 시간(ETA)과 목적지 도보 이동 시간을 동시에 최소화하기 위한 다목적 최적화 가중치 알고리즘을 적용합니다. 이를 통해 운전자에게 최적의 주차 공간 및 경로를 추천합니다.
 
 <br>
 
