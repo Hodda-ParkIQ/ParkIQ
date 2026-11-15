@@ -12,6 +12,13 @@
 
 <br>
 
+## 🔄 시스템 파이프라인 및 서비스 흐름
+*(주차 공간 탐색부터 초개인화 추천, 경로 등록까지의 ParkIQ 유기적 작동 구조)*
+
+<img src="https://private-user-images.githubusercontent.com/203524304/700870304-4a64744b-0a23-44f7-9755-63fc86d99134.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTQ3MTQ0OTEsIm5iZiI6MTc5NDcxNDE5MSwicGF0aCI6Ii8yMDM1MjQzMDQvNzAwODcwMzA0LTRhNjQ3NDRiLTBhMjMtNDRmNy05NzU1LTYzZmM4NmQ5OTEzNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYxMTE1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MTExNVQwMzQzMTFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03MGMxYzY3OTQ4NmZiMzY2NmYyZWJjZmNkMGY5OGU1ZWFjY2Y1OThkNWQyY2UwYWNmZDdjYjgzMWNmODE0NzM4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.jpwercQY8D23j7FpT3ejA5mGL-Ab6Gcac_9pk-TEgb4" width="100%" alt="ParkIQ 시스템 파이프라인"/>
+
+<br>
+
 ## ✨ 핵심 기능 및 차량 특화 요소 (Core Features)
 
 ### 1. 실시간 공간 탐색 및 ETA 최소화
